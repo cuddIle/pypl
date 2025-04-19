@@ -1,0 +1,21 @@
+### WebStorm ###
+.idea/
+
+### Node.js/Next.js ###
+node_modules/
+.next/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### TypeScript ###
+*.tsbuildinfo
+
+### React ###
+build/
+
+### VS Code ###
+.vscode/
+*.code-workspace
