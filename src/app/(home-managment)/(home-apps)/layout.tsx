@@ -4,6 +4,7 @@ import { useSelectedHouse } from "@/common/contexts/selected-house";
 import { type House } from "@/common/schemas/buildings/house";
 import { client } from "@/common/trpc/client";
 import AppNavbar from "@/components/app-nav-bar";
+import SelectHomeError from "@/components/select-home-error";
 import { AppShell, Group, NativeSelect, Text } from "@mantine/core";
 import { ConfigProvider, theme } from "antd";
 import { ReactNode, useEffect, useState } from "react";
@@ -76,7 +77,9 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           <AppNavbar pages={pages} />
         </AppShell.Navbar>
 
-        <AppShell.Main>{children}</AppShell.Main>
+        <AppShell.Main>
+          {selectedHouse ? children : <SelectHomeError />}
+        </AppShell.Main>
       </AppShell>
     </ConfigProvider>
   );

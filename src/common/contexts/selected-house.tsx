@@ -46,10 +46,14 @@ export function SelectedHouseProvider({ children }: { children: ReactNode }) {
     client.building.house.get
       .query({ id: [houseId] })
       .then((houses) => {
-        if (!houses)
-          new Error(`No houses found for the selected house ID: ${houseId}`);
+        if (houses.length === 0) {
+          setSelectedHouse(undefined);
+          localStorage.setItem("selectedHouse", "");
+          return;
+        }
 
-        const selectedHouseResult = houses[0].id || undefined;
+        const selectedHouseResult = houses[0].id;
+
         setSelectedHouse(selectedHouseResult);
         localStorage.setItem(
           "selectedHouse",

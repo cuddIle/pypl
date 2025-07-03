@@ -1,4 +1,3 @@
-import { SelectedHouseProvider } from "@/common/contexts/selected-house";
 import {
   ColorSchemeScript,
   MantineProvider,
@@ -17,17 +16,13 @@ export const metadata = {
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <SelectedHouseProvider>
-      <html lang="en" {...mantineHtmlProps}>
-        <head>
-          <ColorSchemeScript />
-        </head>
-        <body>
-          <MantineProvider defaultColorScheme="dark">
-            {children}
-          </MantineProvider>
-        </body>
-      </html>
-    </SelectedHouseProvider>
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider defaultColorScheme="dark">{children}</MantineProvider>
+      </body>
+    </html>
   );
 }
