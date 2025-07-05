@@ -11,7 +11,8 @@
       "runtimeExecutable": "yarn",
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
-      "runtimeArgs": ["dev"]
+      "runtimeArgs": ["dev"],
+      "envFile": "${workspaceFolder}/.env.local"
     }
   ]
 }

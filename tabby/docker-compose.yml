@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  tabby:
+    restart: always
+    image: registry.tabbyml.com/tabbyml/tabby
+    command: serve --model StarCoder-1B --chat-model Qwen2-1.5B-Instruct --device cpu
+    volumes:
+      - "D:\\.tabby:/data"
+    environment: 
+      - LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/compat:$LD_LIBRARY_PATH
+    ports:
+      - 8080:8080
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
